@@ -116,7 +116,23 @@ document.addEventListener('DOMContentLoaded', () => {
   sampleBadges.forEach(badge => {
     badge.addEventListener('click', () => {
       const sampleType = badge.dataset.sample;
-      generateSampleLeafImage(sampleType);
+      let samplePath = '';
+      if (sampleType === 'tomato_blight') samplePath = '/static/images/samples/tomato_blight.jpg';
+      else if (sampleType === 'corn_rust') samplePath = '/static/images/samples/corn_rust.jpg';
+      else if (sampleType === 'healthy_leaf') samplePath = '/static/images/samples/healthy_leaf.jpg';
+      
+      if (samplePath) {
+        previewImg.src = samplePath;
+        fetch(samplePath)
+          .then(res => res.blob())
+          .then(blob => {
+            currentImageFile = new File([blob], `${sampleType}.jpg`, { type: 'image/jpeg' });
+            currentBase64Data = null;
+            dropzone.style.display = 'none';
+            previewContainer.style.display = 'block';
+            btnAnalyze.disabled = false;
+          });
+      }
     });
   });
 
