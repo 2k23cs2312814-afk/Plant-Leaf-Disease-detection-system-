@@ -1,10 +1,10 @@
 import os
 import sys
 
-# Ensure user site-packages are in sys.path
-user_site = os.path.expanduser(r'~\AppData\Roaming\Python\Python314\site-packages')
-if os.path.exists(user_site) and user_site not in sys.path:
-    sys.path.insert(0, user_site)
+# Get absolute path to project root
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+if BASE_DIR not in sys.path:
+    sys.path.insert(0, BASE_DIR)
 
 import json
 import base64
@@ -12,11 +12,17 @@ from flask import Flask, render_template, request, jsonify
 from flask_cors import CORS
 from model_helper import predict_disease, DISEASE_KNOWLEDGE_BASE
 
-app = Flask(__name__, static_folder='static', template_folder='templates')
+# Initialize Flask with explicit absolute paths for templates & static assets (Required for Vercel serverless)
+app = Flask(
+    __name__,
+    template_folder=os.path.join(BASE_DIR, 'templates'),
+    static_folder=os.path.join(BASE_DIR, 'static'),
+    static_url_path='/static'
+)
 CORS(app)
 
-# Ensure upload directory exists
-UPLOAD_FOLDER = os.path.join(app.root_path, 'static', 'uploads')
+# Ensure upload directory exists in writeable location
+UPLOAD_FOLDER = os.path.join('/tmp', 'uploads') if os.name != 'nt' else os.path.join(BASE_DIR, 'static', 'uploads')
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
 
@@ -50,7 +56,7 @@ def predict():
             if file.filename != '':
                 image_bytes = file.read()
 
-        # Check JSON payload for base64 image data (e.g. webcam capture)
+        # Check JSON payload for base64 image data
         if not image_bytes and request.is_json:
             data = request.get_json()
             if 'image_data' in data:
