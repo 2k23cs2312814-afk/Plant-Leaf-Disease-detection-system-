@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plant Leaf Disease Detection AI | Smart Agritech Diagnosis</title>
+  <meta name="description" content="AI-powered plant leaf disease detection system using MobileNetV2 deep learning. Upload or capture a leaf photo for instant disease diagnosis, confidence metrics, and organic & chemical treatment guides.">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="#" class="brand">
+      <div class="brand-icon">
+        <i class="fa-solid => fa-leaf"></i>
+      </div>
+      <div class="brand-text">
+        <h2>PlantVision AI</h2>
+        <span>Leaf Disease Diagnostic System</span>
+      </div>
+    </a>
+    <div class="nav-actions">
+      <a href="#library" class="nav-link"><i class="fa-solid fa-book-open"></i> Disease Library</a>
+      <a href="https://github.com/2k23cs2312814-afk/Plant-Leaf-Disease-detection-system-.git" target="_blank" class="btn-outline">
+        <i class="fa-brands fa-github"></i> GitHub Repo
+      </a>
+    </div>
+  </nav>
+
+  <!-- App Main Container -->
+  <div class="app-container">
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="badge-pill">
+        <span class="badge-dot"></span>
+        MobileNetV2 Deep Learning Model Engine Ready
+      </div>
+      <h1 class="hero-title">Instant Plant Leaf Disease Detection & Remedies</h1>
+      <p class="hero-subtitle">
+        Upload a plant leaf photo or scan using your camera to instantly identify fungal, bacterial, or viral diseases with precision treatment solutions.
+      </p>
+    </section>
+
+    <!-- Main Grid: Scanner & Results -->
+    <div class="main-grid">
+      
+      <!-- Left Card: Image Upload & Camera Scanner -->
+      <div class="glass-panel scanner-card">
+        <div class="card-header">
+          <div class="card-title">
+            <i class="fa-solid fa-camera-retro text-emerald" style="color:#10b981;"></i>
+            Leaf Image Scanner
+          </div>
+          <button type="button" class="btn-outline" id="btn-camera-trigger" style="padding:0.4rem 0.8rem; font-size:0.85rem;">
+            <i class="fa-solid fa-video"></i> Live Camera
+          </button>
+        </div>
+
+        <!-- Dropzone Area -->
+        <div class="dropzone" id="dropzone">
+          <div class="dropzone-icon">
+            <i class="fa-solid fa-cloud-arrow-up"></i>
+          </div>
+          <div class="dropzone-text">
+            <h4>Drag & Drop Leaf Photo Here</h4>
+            <p>Supports JPG, PNG, WEBP (Max 10MB)</p>
+          </div>
+          <input type="file" id="file-input" class="file-input" accept="image/*">
+        </div>
+
+        <!-- Image Preview Box -->
+        <div class="preview-container" id="preview-container">
+          <img id="preview-img" class="preview-image" src="" alt="Selected Plant Leaf">
+          <button type="button" class="remove-btn" id="btn-remove-img" title="Remove photo">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <!-- Sample Leaf Selector -->
+        <div class="quick-options">
+          <div class="sample-selector">
+            <label><i class="fa-solid fa-vial"></i> Quick Test Samples:</label>
+            <span class="sample-badge" data-sample="tomato_blight">Tomato Blight</span>
+            <span class="sample-badge" data-sample="corn_rust">Corn Rust</span>
+            <span class="sample-badge" data-sample="healthy_leaf">Healthy Leaf</span>
+          </div>
+        </div>
+
+        <!-- Analyze Action Button -->
+        <div class="action-bar">
+          <button type="button" class="btn-emerald" id="btn-analyze" disabled>
+            <i class="fa-solid fa-microscope"></i> Analyze Leaf Health
+          </button>
+        </div>
+      </div>
+
+      <!-- Right Card: AI Diagnosis Results -->
+      <div class="glass-panel results-card" id="results-panel">
+        
+        <!-- Default Empty State -->
+        <div class="empty-state" id="empty-state">
+          <div class="empty-icon">
+            <i class="fa-solid fa-seedling"></i>
+          </div>
+          <h3>Awaiting Leaf Scan</h3>
+          <p>Upload a leaf image or take a snapshot to view AI diagnosis, confidence level, and curative recommendations.</p>
+        </div>
+
+        <!-- Diagnosis Display -->
+        <div class="diagnosis-container" id="diagnosis-container">
+          
+          <div class="diagnosis-header">
+            <div>
+              <div class="disease-tag" id="res-disease-name">Tomato Early Blight</div>
+              <div class="disease-meta">
+                <span class="meta-chip" id="res-crop"><i class="fa-solid fa-plant-wilt"></i> Tomato</span>
+                <span class="meta-chip" id="res-latin">Alternaria solani</span>
+              </div>
+            </div>
+            <div class="status-badge status-diseased" id="res-status-badge">
+              Diseased
+            </div>
+          </div>
+
+          <!-- Confidence Score Gauge -->
+          <div class="confidence-box">
+            <div class="confidence-header">
+              <span>AI Confidence Level</span>
+              <span id="res-confidence-text" style="color:var(--primary-emerald);">94.8%</span>
+            </div>
+            <div class="confidence-bar-bg">
+              <div class="confidence-bar-fill" id="res-confidence-bar"></div>
+            </div>
+          </div>
+
+          <!-- Remedies & Treatment Tabs -->
+          <div style="margin-top:1.5rem;">
+            <div class="tab-header">
+              <button class="tab-btn active" data-tab="tab-symptoms"><i class="fa-solid fa-list-check"></i> Symptoms</button>
+              <button class="tab-btn" data-tab="tab-organic"><i class="fa-solid fa-leaf"></i> Organic Remedy</button>
+              <button class="tab-btn" data-tab="tab-chemical"><i class="fa-solid fa-flask"></i> Chemical Cure</button>
+              <button class="tab-btn" data-tab="tab-prevent"><i class="fa-solid fa-shield-halved"></i> Prevention</button>
+            </div>
+
+            <div class="tab-content active" id="tab-symptoms">
+              <ul class="remedy-list" id="list-symptoms">
+                <li><i class="fa-solid fa-circle-notch remedy-icon"></i> Concentric dark spots with yellow chlorotic halos.</li>
+              </ul>
+            </div>
+
+            <div class="tab-content" id="tab-organic">
+              <ul class="remedy-list" id="list-organic">
+                <li><i class="fa-solid fa-check remedy-icon"></i> Apply Neem Oil spray (5ml/L water).</li>
+              </ul>
+            </div>
+
+            <div class="tab-content" id="tab-chemical">
+              <ul class="remedy-list" id="list-chemical">
+                <li><i class="fa-solid fa-capsules remedy-icon"></i> Spray Chlorothalonil fungicide.</li>
+              </ul>
+            </div>
+
+            <div class="tab-content" id="tab-prevent">
+              <ul class="remedy-list" id="list-prevent">
+                <li><i class="fa-solid fa-seedling remedy-icon"></i> Rotate crops every 3 seasons.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Print & Export Buttons -->
+          <div style="margin-top:2rem; display:flex; gap:1rem;">
+            <button class="btn-outline" id="btn-print-report" style="width:100%; justify-content:center;">
+              <i class="fa-solid fa-file-pdf"></i> Save PDF Diagnostic Report
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Disease Library Section -->
+    <section class="library-section" id="library">
+      <div class="section-title-box">
+        <div>
+          <h2>Plant Disease Knowledge Base</h2>
+          <p style="color:var(--text-muted);">Explore common plant leaf pathogens, symptoms, and cures.</p>
+        </div>
+        <div class="filter-pills" id="filter-container">
+          <button class="filter-btn active" data-filter="all">All Crops</button>
+          <button class="filter-btn" data-filter="Tomato">Tomato</button>
+          <button class="filter-btn" data-filter="Potato">Potato</button>
+          <button class="filter-btn" data-filter="Corn">Corn</button>
+          <button class="filter-btn" data-filter="Apple">Apple</button>
+          <button class="filter-btn" data-filter="Healthy">Healthy</button>
+        </div>
+      </div>
+
+      <div class="disease-grid" id="disease-grid">
+        <!-- Dynamic disease cards injected via JS -->
+      </div>
+    </section>
+
+  </div>
+
+  <!-- WebCam Capture Modal -->
+  <div class="modal-overlay" id="camera-modal">
+    <div class="glass-panel modal-card">
+      <div class="card-header">
+        <h3><i class="fa-solid fa-camera"></i> Scan Leaf with WebCam</h3>
+        <button type="button" class="remove-btn" id="btn-close-modal"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <video id="camera-feed" class="camera-video" autoplay playsinline></video>
+      <canvas id="camera-canvas" style="display:none;"></canvas>
+      <div style="display:flex; gap:1rem; margin-top:1rem;">
+        <button type="button" class="btn-emerald" id="btn-capture-snapshot" style="flex:1; justify-content:center;">
+          <i class="fa-solid fa-camera"></i> Take Photo
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>🌿 Plant Leaf Disease Detection System &copy; 2026. Built with TensorFlow, Flask & Glassmorphism UI.</p>
+  </footer>
+
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,247 @@
+{
+  "Tomato_Early_Blight": {
+    "name": "Tomato Early Blight",
+    "crop": "Tomato",
+    "scientific_name": "Alternaria solani",
+    "severity": "Moderate",
+    "health_status": "Diseased",
+    "symptoms": [
+      "Concentric ring spots ('target board' pattern) on older leaves",
+      "Yellowing surrounding leaf spots",
+      "Lower leaves drop prematurely",
+      "Dark sunken spots on stems near ground level"
+    ],
+    "organic_remedies": [
+      "Apply Neem oil spray every 7-10 days",
+      "Spray copper fungicide or bio-fungicide (Bacillus subtilis)",
+      "Mulch soil around plants to prevent fungal spores from splashing up",
+      "Prune lower infected leaves to improve air circulation"
+    ],
+    "chemical_treatments": [
+      "Chlorothalonil or Mancozeb protective spray",
+      "Azoxystrobin or Difenoconazole systemic fungicide for active outbreak"
+    ],
+    "preventive_measures": [
+      "Practice 3-year crop rotation with non-solanaceous plants",
+      "Use drip irrigation instead of overhead watering",
+      "Plant resistant tomato varieties (e.g., Mountain Magic, Defiant)"
+    ]
+  },
+  "Tomato_Late_Blight": {
+    "name": "Tomato Late Blight",
+    "crop": "Tomato",
+    "scientific_name": "Phytophthora infestans",
+    "severity": "Critical",
+    "health_status": "Diseased",
+    "symptoms": [
+      "Large, irregular water-soaked dark lesions on leaves and stems",
+      "White fungal fuzzy growth on underside of leaves in humid conditions",
+      "Rapid wilting and browning of entire foliage",
+      "Brown firm rot on tomato fruits"
+    ],
+    "organic_remedies": [
+      "Apply copper sulfate or Bordeaux mixture immediately at first sign",
+      "Remove and destroy severely infected plants immediately (do not compost)",
+      "Maintain strict canopy airflow and dry foliage"
+    ],
+    "chemical_treatments": [
+      "Metalaxyl + Mancozeb combination fungicide",
+      "Dimethomorph or Cymoxanil spray"
+    ],
+    "preventive_measures": [
+      "Destroy volunteer tomato and potato plants nearby",
+      "Avoid planting near potato fields",
+      "Apply preventive bio-fungicide prior to wet cool weather"
+    ]
+  },
+  "Tomato_Bacterial_Spot": {
+    "name": "Tomato Bacterial Spot",
+    "crop": "Tomato",
+    "scientific_name": "Xanthomonas perforans",
+    "severity": "High",
+    "health_status": "Diseased",
+    "symptoms": [
+      "Small dark water-soaked spots with yellow halos on leaves",
+      "Leaf spots turn brown and foliage appears shot-through",
+      "Scab-like rough raised spots on fruits"
+    ],
+    "organic_remedies": [
+      "Fixed copper mixed with mancozeb or bio-bactericide",
+      "Streptomyces lydicus biological fungicide"
+    ],
+    "chemical_treatments": [
+      "Copper hydroxide + Mancozeb spray",
+      "Oxytetracycline bactericide (where permitted)"
+    ],
+    "preventive_measures": [
+      "Use certified disease-free seeds",
+      "Avoid handling wet plants",
+      "Sterilize garden tools with 70% isopropyl alcohol"
+    ]
+  },
+  "Tomato_Yellow_Leaf_Curl_Virus": {
+    "name": "Tomato Yellow Leaf Curl Virus (TYLCV)",
+    "crop": "Tomato",
+    "scientific_name": "Begomovirus (TYLCV)",
+    "severity": "Critical",
+    "health_status": "Diseased",
+    "symptoms": [
+      "Severe stunting of young tomato plants",
+      "Upward curling and yellowing of leaf margins",
+      "Leaves become leathery and thick",
+      "Flowers drop before fruiting"
+    ],
+    "organic_remedies": [
+      "Control Whitefly vector using yellow sticky traps",
+      "Spray Insecticidal soap or Neem oil regularly to kill whiteflies",
+      "Cover crops with fine insect netting (mesh size < 0.6mm)"
+    ],
+    "chemical_treatments": [
+      "Imidacloprid or Thiamethoxam systemic insecticide for whitefly control",
+      "Spiroteramat for nymph stage suppression"
+    ],
+    "preventive_measures": [
+      "Plant TYLCV-resistant hybrids (e.g., Tycoon, Inbar)",
+      "Reflective silver mulches to repel whiteflies"
+    ]
+  },
+  "Tomato_Healthy": {
+    "name": "Tomato Healthy Leaf",
+    "crop": "Tomato",
+    "scientific_name": "Solanum lycopersicum",
+    "severity": "None",
+    "health_status": "Healthy",
+    "symptoms": [
+      "Vibrant deep green foliage",
+      "No spots, lesions, or discoloration",
+      "Firm, upright stem and vigorous growth"
+    ],
+    "organic_remedies": [
+      "No disease treatment required!",
+      "Maintain regular balanced organic fertilization (Compost, Kelp meal)"
+    ],
+    "chemical_treatments": [
+      "None needed. Keep up standard care."
+    ],
+    "preventive_measures": [
+      "Maintain consistent watering schedule",
+      "Provide 6-8 hours of direct sunlight daily",
+      "Monitor foliage weekly for early pest detection"
+    ]
+  },
+  "Potato_Early_Blight": {
+    "name": "Potato Early Blight",
+    "crop": "Potato",
+    "scientific_name": "Alternaria solani",
+    "severity": "Moderate",
+    "health_status": "Diseased",
+    "symptoms": [
+      "Target-like dark brown spots on mature leaves",
+      "Yellowing surrounding leaf lesions",
+      "Tuber surface shows dark, leathery, sunken spots"
+    ],
+    "organic_remedies": [
+      "Copper octanoate spray",
+      "Bacillus subtilis foliage application"
+    ],
+    "chemical_treatments": [
+      "Chlorothalonil or Propiconazole spray"
+    ],
+    "preventive_measures": [
+      "Ensure proper plant nitrogen fertilization",
+      "Avoid leaf wetness during early morning/evening"
+    ]
+  },
+  "Potato_Late_Blight": {
+    "name": "Potato Late Blight",
+    "crop": "Potato",
+    "scientific_name": "Phytophthora infestans",
+    "severity": "Critical",
+    "health_status": "Diseased",
+    "symptoms": [
+      "Dark water-soaked leaf spots rapidly enlarging",
+      "White powdery growth on leaf undersides during high humidity",
+      "Tubers rot in soil with reddish-brown dry rot"
+    ],
+    "organic_remedies": [
+      "Copper hydroxide spray at 5-day intervals during wet weather",
+      "Immediate destruction of infected vines before harvest"
+    ],
+    "chemical_treatments": [
+      "Fluazinam or Mandipropamid protective fungicide"
+    ],
+    "preventive_measures": [
+      "Plant certified seed potatoes only",
+      "Hill soil well over tubers to protect from falling spores"
+    ]
+  },
+  "Corn_Common_Rust": {
+    "name": "Corn Common Rust",
+    "crop": "Corn",
+    "scientific_name": "Puccinia sorghi",
+    "severity": "Moderate",
+    "health_status": "Diseased",
+    "symptoms": [
+      "Golden-brown to cinnamon-red pustules on both upper and lower leaf surfaces",
+      "Pustules rupture releasing powdery rust spores",
+      "Severe infection causes leaf chlorosis and premature drying"
+    ],
+    "organic_remedies": [
+      "Sulfur-based organic fungicide spray",
+      "Neem oil spray"
+    ],
+    "chemical_treatments": [
+      "Pyraclostrobin or Azoxystrobin systemic fungicide"
+    ],
+    "preventive_measures": [
+      "Plant rust-resistant corn hybrids",
+      "Early planting to avoid peak spore migration"
+    ]
+  },
+  "Apple_Scab": {
+    "name": "Apple Scab",
+    "crop": "Apple",
+    "scientific_name": "Venturia inaequalis",
+    "severity": "High",
+    "health_status": "Diseased",
+    "symptoms": [
+      "Olive-green to velvety brown spots on leaf surfaces",
+      "Leaves become distorted, yellow, and drop early",
+      "Dark corky scab lesions on apple fruit"
+    ],
+    "organic_remedies": [
+      "Liquid lime-sulfur or copper soap spray at bud break",
+      "Rake and burn fallen leaf litter in autumn to destroy overwintering fungi"
+    ],
+    "chemical_treatments": [
+      "Myclobutanil or Captan fungicide application"
+    ],
+    "preventive_measures": [
+      "Prune tree canopy for maximum sunlight and airflow",
+      "Choose scab-resistant apple cultivars (e.g., Liberty, Enterprise)"
+    ]
+  },
+  "Healthy_Leaf": {
+    "name": "Healthy Plant Leaf",
+    "crop": "General Plant",
+    "scientific_name": "Plantae",
+    "severity": "None",
+    "health_status": "Healthy",
+    "symptoms": [
+      "Clean leaf blade with uniform coloration",
+      "No fungal lesions, rust, or bacterial spots",
+      "Turgid and vigorous cellular structure"
+    ],
+    "organic_remedies": [
+      "No disease remedies needed!",
+      "Maintain soil health with organic compost and compost tea"
+    ],
+    "chemical_treatments": [
+      "N/A"
+    ],
+    "preventive_measures": [
+      "Provide optimal sunlight, nutrients, and moisture",
+      "Inspect plants regularly for early detection"
+    ]
+  }
+}
